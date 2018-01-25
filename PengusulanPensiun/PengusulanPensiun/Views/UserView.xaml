@@ -1,0 +1,38 @@
+﻿<Window x:Class="PengusulanPensiun.Views.UserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PengusulanPensiun.Views"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="UserView" Height="501.302" Width="309.772" Style="{DynamicResource WindowStyle1}">
+   
+    <Grid>
+        <StackPanel Margin="20,20,20,20">
+            <StackPanel Name="stackNama">
+                <Label Content="Nama" Style="{DynamicResource LabelStyle1}"></Label>
+                <TextBox Name="Nama" Style="{DynamicResource TextBoxStyle1}" />
+            </StackPanel>
+            <Label Content="User Name" Style="{DynamicResource LabelStyle1}"></Label>
+            <TextBox Name="userName" Style="{DynamicResource TextBoxStyle1}" />
+            <StackPanel Name="stackOld">
+                <Label Content="Password Lama" Style="{DynamicResource LabelStyle1}"></Label>
+                <PasswordBox Name="oldpassword"  Style="{DynamicResource PasswordBoxStyle1}"  />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Password" Style="{DynamicResource LabelStyle1}"></Label>
+                <PasswordBox Name="password"  Style="{DynamicResource PasswordBoxStyle1}"  />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Konfirmasi Password" Style="{DynamicResource LabelStyle1}"></Label>
+                <PasswordBox Name="confirmpassword"  Style="{DynamicResource PasswordBoxStyle1}"  />
+            </StackPanel>
+
+            <Label Content="{Binding Error}" Foreground="Red"/>
+            <WrapPanel Margin="0,20,0,0">
+                <Button Name="ubah" Click="ubah_Click" Content="Simpan" Style="{DynamicResource ButtonStyle1}"></Button>
+                <Button Name="batal" Click="batal_Click" Content="Batal" Style="{DynamicResource ButtonStyle1}"></Button>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

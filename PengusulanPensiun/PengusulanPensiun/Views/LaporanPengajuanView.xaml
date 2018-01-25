@@ -1,0 +1,15 @@
+﻿<Window x:Class="PengusulanPensiun.Views.LaporanPengajuanView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PengusulanPensiun.Views"
+        xmlns:report1="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Laporan" Height="768" Width="1366" Style="{DynamicResource WindowStyle1}">
+    <Grid>
+        <WindowsFormsHost Margin="10">
+            <report1:ReportViewer x:Name="reportViewer"></report1:ReportViewer>
+        </WindowsFormsHost>
+    </Grid>
+</Window>

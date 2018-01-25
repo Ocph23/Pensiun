@@ -1,0 +1,131 @@
+﻿<Window x:Class="PengusulanPensiun.Views.PengajuanPensiunViewm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PengusulanPensiun.Views"
+        mc:Ignorable="d" Style="{StaticResource  WindowStyle1}" WindowStartupLocation="CenterScreen"
+        Title="PengajuanPensiunViewm" Height="768" Width="1366" >
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="601*"/>
+            <RowDefinition Height="74*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel>
+            <Label Style="{StaticResource LabelStyleInput}" Content="Periode" Width="102"/>
+            <ComboBox ItemsSource="{Binding Periodes}" 
+                      DisplayMemberPath="KodePeriode"
+                      SelectedItem="{Binding PeriodeSelected}" 
+                      SelectedValuePath="PeriodeId"
+                      Width="153" 
+                      Foreground="OrangeRed" VerticalContentAlignment="Center">
+            </ComboBox>
+        </WrapPanel>
+        <Grid  Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="0" ItemsSource="{Binding SourceView}" SelectedItem="{Binding SelectedItem}" Style="{StaticResource DataGridStyle1}" RowStyle="{StaticResource RowStyleWithAlternation}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="NIP" Binding="{Binding NIP}"/>
+                    <DataGridTextColumn Width="*" Header="Nama" Binding="{Binding Nama}"/>
+                    <DataGridTextColumn Header="Pangkat/Golongan" Binding="{Binding PangkatGolongan}"/>
+                    <DataGridTextColumn  Header="Jabatan" Binding="{Binding Jabatan}"/>
+                </DataGrid.Columns>
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Kelengkapan.Lengkap}" Value="false">
+                                <Setter Property="Background" Value="#FFFBCF08"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+            </DataGrid>
+            <StackPanel Grid.Column="1">
+                <Expander Margin="10" IsExpanded="True" Header="Info Pegawai">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="101*"/>
+                            <ColumnDefinition Width="167*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Instansi"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Nomor Kartu Pegawai"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="TTL"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Masa Kerja"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Alamat"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <Label Style="{StaticResource LabelStyleInput}" Content="{Binding SelectedItem.Instansi.Nama}"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="{Binding SelectedItem.NomorSeriKarpeg}"/>
+                            <WrapPanel Orientation="Horizontal">
+                                <Label  HorizontalAlignment="Left" Style="{StaticResource LabelStyleInput}"  Content="{Binding SelectedItem.TempatLahir}"/>
+                                <Label HorizontalAlignment="Left" Style="{StaticResource LabelStyleInput}" Content="{Binding SelectedItem.TanggalLahir}"/>
+                            </WrapPanel>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="{Binding SelectedItem.MasaKerja}"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="{Binding SelectedItem.Alamat}"/>
+
+                        </StackPanel>
+                    </Grid>
+                </Expander>
+                <Expander Margin="10"  Header="Kelengkapan">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="101*"/>
+                            <ColumnDefinition Width="167*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Label Style="{StaticResource LabelStyleInput}" Content="SK Pengangkatan"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="SK Kenaikan Pangkat"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Taspen"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Kartu Pegawai"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Akta Nikah"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Akta Kelahiran Anak"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="SP4"/>
+                          
+                            <Label Style="{StaticResource LabelStyleInput}" Content="SKP Tahun Terakhir"/>
+                            <Label Style="{StaticResource LabelStyleInput}" Content="Alamat Setelah Pensiun"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.SKPengangkatan}"/>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.SKKenaikanPangkat}"/>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.Taspen}"/>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.KartuPegawai}"/>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.AktaNikah}"/>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.AktaKelahiranAnak}"/>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.SP4}"/>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.SKPTahunTerakhir}"/>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}" IsEnabled="False" IsChecked="{Binding SelectedItem.Kelengkapan.AlamatTerakhir}"/>
+
+                        </StackPanel>
+                    </Grid>
+                </Expander>
+
+            </StackPanel>
+           
+        </Grid>
+        
+        <WrapPanel Grid.Row="2">
+            <Button Style="{StaticResource ButtonStyle1}"
+                    Content="Tambah"
+                    Command="{Binding AddPegawaiCommand}"
+                    ></Button>
+            <Button Style="{StaticResource ButtonStyle1}"
+                    Content="Edit"
+                    Command="{Binding EditPegawaiCommand}"
+                    ></Button>
+          
+            <Button Style="{StaticResource ButtonStyle1}"
+                    Content="Cetak"
+                    Command="{Binding PrintCommand}"
+                    ></Button>
+            <Button Style="{StaticResource ButtonStyle1}"
+                    Content="Keluar"
+                    Command="{Binding CloseCommand}"
+                    ></Button>
+        </WrapPanel>
+    </Grid>
+</Window>

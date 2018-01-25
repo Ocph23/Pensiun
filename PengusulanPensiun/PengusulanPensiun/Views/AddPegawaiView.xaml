@@ -1,0 +1,89 @@
+﻿<Window x:Class="PengusulanPensiun.Views.AddPegawaiView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PengusulanPensiun.Views"
+        mc:Ignorable="d" Style="{StaticResource WindowStyle1}" WindowStartupLocation="CenterScreen"
+        Title="Tambah Pegawai" Height="581.731" Width="563.154">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="231*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+        <TabControl Background="{x:Null}"  >
+            <TabItem Header="Data Pegawai">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="271*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Label Content="NIP" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Nama" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="TTL" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Nomor Karpeg" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Instansi" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Pangkat/Golongan" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Masa Kerja" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Jabatan" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Alamat" Style="{StaticResource LabelStyleInput}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBox Text="{Binding NIP,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox Text="{Binding Nama,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}"/>
+                        <WrapPanel>
+                            <TextBox Text="{Binding TempatLahir,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}" Width="158"/>
+                            <DatePicker Margin="3" Text="{Binding TanggalLahir,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+                        </WrapPanel>
+
+                        <TextBox Text="{Binding NomorSeriKarpeg,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}"/>
+                        <ComboBox ItemsSource="{Binding Instansies}" Height="35" DisplayMemberPath="Nama" SelectedValuePath="Id" Margin="3" SelectedValue="{Binding InstansiId,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}"/>
+                        <TextBox Text="{Binding PangkatGolongan,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox Text="{Binding MasaKerja,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox Text="{Binding Jabatan,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox Text="{Binding Alamat,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}" Height="80"/>
+                    </StackPanel>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Kelengkapan">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="215*"/>
+                        <ColumnDefinition Width="207*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Label Content="SK Pengangkatan" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="SK Kenaikan Pangkat" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Taspen" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Kartu Pegawai" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Akta Nikah" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Akta Kelahiran Anak" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="SP4" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="SK Tahun Terakhir" Style="{StaticResource LabelStyleInput}"/>
+                        <Label Content="Alamat Setelah Pensiun" Style="{StaticResource LabelStyleInput}"/>
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <CheckBox IsChecked="{Binding Kelengkapan.SKPengangkatan,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                        <CheckBox IsChecked="{Binding Kelengkapan.SKKenaikanPangkat,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                        <CheckBox IsChecked="{Binding Kelengkapan.Taspen,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                        <CheckBox IsChecked="{Binding Kelengkapan.KartuPegawai,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                        <CheckBox IsChecked="{Binding Kelengkapan.AktaNikah,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                        <CheckBox IsChecked="{Binding Kelengkapan.AktaKelahiranAnak,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                        <CheckBox IsChecked="{Binding Kelengkapan.SP4,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                        <CheckBox IsChecked="{Binding Kelengkapan.SKPTahunTerakhir,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                        <CheckBox IsChecked="{Binding Kelengkapan.AlamatTerakhir,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource CheckBoxStyle1}" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <WrapPanel Grid.Row="1">
+            <Button Style="{StaticResource ButtonStyle1}" Content="Simpan" Command="{Binding SaveCommand}"/>
+            <Button Style="{StaticResource ButtonStyle1}" Content="Batal" Command="{Binding CancelCommand}"/>
+        </WrapPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="PengusulanPensiun.Views.AddInstansiView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PengusulanPensiun.Views"
+        mc:Ignorable="d" Style="{StaticResource WindowStyle1}"
+        Title="{Binding Title}" Height="353.077" Width="316.923">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="149*"/>
+            <ColumnDefinition Width="271*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="232*"/>
+            <RowDefinition Height="59*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label Content="Nama" Style="{StaticResource LabelStyleInput}"/>
+            <Label Content="Alamat" Style="{StaticResource LabelStyleInput}"/>
+            <Label Content="Keterangan" Style="{StaticResource LabelStyleInput}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBox Text="{Binding Nama,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource TextBoxStyle1}"/>
+            <TextBox Text="{Binding Alamat,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource  TextBoxStyle1}" Height="80" />
+            <TextBox Text="{Binding Keterangan,UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{DynamicResource  TextBoxStyle1}" Height="80" />
+        </StackPanel>
+        <WrapPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <Button Style="{StaticResource ButtonStyle1}" Content="Simpan" Command="{Binding SaveCommand}"/>
+            <Button Style="{StaticResource ButtonStyle1}" Content="Batal" Command="{Binding CancelCommand}"/>
+        </WrapPanel>
+
+    </Grid>
+</Window>

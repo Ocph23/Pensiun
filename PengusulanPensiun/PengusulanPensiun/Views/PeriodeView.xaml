@@ -1,0 +1,40 @@
+﻿<Window x:Class="PengusulanPensiun.Views.PeriodeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PengusulanPensiun.Views"
+        mc:Ignorable="d" Style="{StaticResource WindowStyle1}" WindowStartupLocation="CenterScreen"
+        Title="Daftar Periode" Height="500" Width="700">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <DataGrid  Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding SourceView}" SelectedItem="{Binding SelectedItem}"
+                   RowStyle="{StaticResource RowStyleWithAlternation}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Kode Periode" Binding="{Binding KodePeriode}"/>
+                <DataGridTextColumn Width="*" Header="Tanggal Pengajuan" Binding="{Binding TanggalPengajuan}"/>
+                <DataGridTextColumn Width="*" Header="Tanggal Kirim" Binding="{Binding TanggalRencanaPengiriman}"/>
+                <DataGridCheckBoxColumn IsReadOnly="True" Width="*" Header="Tanggal Aktif" Binding="{Binding Aktif}"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+        <WrapPanel Grid.Row="1">
+            <Button Style="{StaticResource ButtonStyle1}"
+                    Content="Tambah"
+                    Command="{Binding AddPeriodeCommand}"
+                    ></Button>
+            <Button Style="{StaticResource ButtonStyle1}"
+                    Content="Edit"
+                    Command="{Binding EditPeriodeCommand}"
+                    ></Button>
+            <Button Style="{StaticResource ButtonStyle1}"
+                    Content="Keluar"
+                    Command="{Binding CloseCommand}"
+                    ></Button>
+        </WrapPanel>
+    </Grid>
+</Window>

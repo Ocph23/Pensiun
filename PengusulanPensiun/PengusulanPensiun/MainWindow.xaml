@@ -1,0 +1,34 @@
+﻿<Window x:Class="PengusulanPensiun.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PengusulanPensiun"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Aplikasi" Height="768" Width="1366" Style="{DynamicResource WindowStyle1}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="101"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu  FontSize="18" Grid.Row="0" Foreground="OrangeRed" Background="#FFCECCE2">
+            <MenuItem Header="PERIODE" Name="periodemenu" Click="periodemenu_Click" Height="100" Width="150" FontWeight="Bold" BorderBrush="{x:Null}"/>
+            <MenuItem Header="INSTANSI" Name="instansimenu" Click="instansimenu_Click" Height="100" Width="150" FontWeight="Bold" BorderBrush="{x:Null}"/>
+            <MenuItem Header="PENGAJUAN PENSIUN" Name="pegawaimenu" Click="pegawaimenu_Click" Height="100" Width="236" FontWeight="Bold" BorderBrush="{x:Null}"/>
+            <MenuItem Header="USER" Name="usermenu" Height="100" Width="96" Click="usermenu_Click" FontWeight="Bold" BorderBrush="{x:Null}">
+                <MenuItem Name="changePassword" Header="Ubah Passwor" Click="changePassword_Click" Background="#FFCECCE2" Height="60"/>
+                <MenuItem Header="Tambah User" Name="addUser" Background="#FFCECCE2" Height="60" Click="addUser_Click"/>
+            </MenuItem>
+            <MenuItem Header="TENTANG" Name="about" Click="about_Click" Height="100" Width="182" FontWeight="Bold" BorderBrush="{x:Null}"/>
+        </Menu>
+        <StackPanel Grid.Row="1">
+            
+            <TextBlock HorizontalAlignment="Center" FontSize="30" Margin="0,50" Text="APLIKASI PENGAJUAN PERMOHONAN PENSIUN" Foreground="#FFFD4500" FontWeight="Bold"/>
+            <Image Margin="0,50,0,20" Height="149" Source="Images/logokotajayapura.png"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="24"  Text="PEMERINTAH KOTA JAYAPURA" Foreground="#FFFD4500" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="24"  Text="DISTRIK JAYAPURA SELATAN" Foreground="#FFFD4500" FontWeight="Bold"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
